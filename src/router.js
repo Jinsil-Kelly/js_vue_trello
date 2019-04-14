@@ -1,6 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import Login from "./views/Login.vue";
+import NotFound from "./views/NotFound.vue";
+import Board from "./views/Board.vue";
+import Card from "./views/Card.vue";
 
 Vue.use(Router);
 
@@ -13,6 +17,14 @@ export default new Router({
       name: "home",
       component: Home
     },
+    { path: "/login", component: Login },
+    {
+      path: "/b/:bId",
+      component: Board,
+      name: "board",
+      children: [{ path: "c/:cId", component: Card }]
+    },
+
     {
       path: "/about",
       name: "about",
@@ -21,6 +33,10 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "*",
+      component: NotFound
     }
   ]
 });
