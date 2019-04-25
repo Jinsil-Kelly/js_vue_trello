@@ -1,16 +1,7 @@
 <template>
-  <div class="home">
-    <NotFound msg="I am NotFound Page" />
-  </div>
+  <div>Page Not Found</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import NotFound from "@/components/NotFound.vue";
-
-export default {
-  components: {
-    NotFound
-  }
-};
+export default {};
 </script>

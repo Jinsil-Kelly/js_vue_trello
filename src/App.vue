@@ -1,32 +1,67 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/Login">Login</router-link>
-      <router-link to="/about">About</router-link>
-    </div>
+    <Navbar />
     <router-view />
   </div>
 </template>
-
+<script>
+import Navbar from "./components/Navbar.vue";
+export default {
+  name: "app",
+  components: { Navbar },
+  data() {
+    return {};
+  }
+};
+</script>
 <style>
+html,
+body,
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
+  margin: 0px;
 }
-#nav {
-  padding: 30px;
+#app {
+  display: flex;
+  flex-direction: column;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.container {
+  flex-grow: 1;
+  position: relative;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.btn {
+  border-radius: 3px;
+  padding: 6px 8px;
+  background-color: #e2e4e6;
+  border: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-success {
+  background-color: #5aac44;
+  box-shadow: 0 1px 0 #519839;
+}
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #e2e4e6;
+  border: 1px solid #cdd2d4;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 12px;
+  padding: 6px 8px;
+  transition: background-color 0.3s;
+}
+input[type="text"].form-control,
+input[type="password"].form-control,
+textarea.form-control {
+  font-size: 14px;
+}
+.form-control:focus {
+  background-color: #fff;
 }
 </style>

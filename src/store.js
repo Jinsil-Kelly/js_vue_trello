@@ -4,7 +4,11 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: { isAddBoard: false },
+  mutations: {
+    SET_IS_ADD_BOARD(state, toggle) {
+      state.isAddBoard = toggle;
+    }
+  },
   actions: {}
 });

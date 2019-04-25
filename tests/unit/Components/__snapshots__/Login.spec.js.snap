@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginComponent renders the component 1`] = `
+<div class="login">
+  <h2>Log in to Trello</h2>
+  <form id="loginForm">
+    <div><label for="email">Email</label> <input id="email" type="text" name="email" autofocus="autofocus" placeholder="e.g., test@test.com" class="form-control"></div>
+    <div><label for="password">Password</label> <input id="password" type="password" placeholder="123123" class="form-control"></div> <button type="submit" disabled="disabled" class="btn">
+      Log In
+    </button>
+  </form>
+  <!---->
+</div>
+`;

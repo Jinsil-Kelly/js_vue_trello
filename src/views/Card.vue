@@ -1,15 +1,21 @@
 <template>
-  <div>
-    <Card msg="I am Card Page" />
-  </div>
+  <div>Card Id is {{ cId }}</div>
 </template>
 
 <script>
-import Card from "@/components/Card.vue";
-
 export default {
-  components: {
-    Card
+  data() {
+    return {
+      cId: 0
+    };
+  },
+  watch: {
+    $route() {
+      this.cId = this.$route.params.cId;
+    }
+  },
+  created() {
+    return (this.cId = this.$route.params.cId);
   }
 };
 </script>

@@ -1,12 +1,36 @@
-import { shallowMount } from "@vue/test-utils";
-import Home from "@/components/Home.vue";
+import Home from "@/views/Home.vue";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
+import initialState from "@/store";
+import Vuex from "vuex";
 
-describe("Home.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
+const localVue = createLocalVue();
+localVue.use(Vuex);
+
+describe("HomeComponent", () => {
+  let state;
+
+  const build = () => {
     const wrapper = shallowMount(Home, {
-      propsData: { msg }
+      localVue,
+      store: new Vuex.Store({
+        state
+      })
     });
-    expect(wrapper.text()).toMatch(msg);
+    return {
+      wrapper
+    };
+  };
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+    state = { ...initialState };
+  });
+
+  it("renders the component", () => {
+    // arrange
+    const { wrapper } = build();
+
+    // assert
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

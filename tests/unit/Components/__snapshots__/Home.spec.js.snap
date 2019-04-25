@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeComponent renders the component 1`] = `
+<div class="home">
+  <div>
+    <div class="home-title">Personal Boards</div>
+    <div class="board-list">
+      <div class="board-item board-item-new"><a href="" class="new-board-btn">
+          Create new board...
+        </a></div>
+    </div>
+    <!---->
+  </div>
+  <router-link-stub to="/b/1" tag="a" event="click">Board1</router-link-stub>
+  <router-link-stub to="/b/2" tag="a" event="click">Board2</router-link-stub>
+</div>
+`;
