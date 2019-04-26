@@ -10,7 +10,9 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+
+const { mapMutations, mapGetters } = createNamespacedHelpers("auth");
 
 export default {
   computed: {

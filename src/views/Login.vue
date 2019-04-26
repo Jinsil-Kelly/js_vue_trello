@@ -38,7 +38,9 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+
+const { mapActions } = createNamespacedHelpers("auth");
 
 export default {
   data() {
@@ -61,7 +63,9 @@ export default {
     ...mapActions(["LOGIN"]),
     onSubmit() {
       this.LOGIN({ email: this.email, password: this.password })
-        .then(() => this.$router.push(this.rPath))
+        .then(() => {
+          this.$router.push(this.rPath);
+        })
         .catch(err => {
           this.error = err.data.error;
         });

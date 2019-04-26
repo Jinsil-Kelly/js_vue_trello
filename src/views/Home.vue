@@ -33,7 +33,10 @@
 
 <script>
 import AddBoard from "@/components/AddBoard.vue";
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const { mapActions, mapMutations, mapGetters } = createNamespacedHelpers(
+  "board"
+);
 export default {
   components: {
     AddBoard

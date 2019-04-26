@@ -5,8 +5,7 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 const { token } = localStorage;
-store.commit("LOGIN", token);
-console.log(store);
+store.commit("auth/LOGIN", token);
 new Vue({
   router,
   store,

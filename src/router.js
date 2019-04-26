@@ -11,7 +11,7 @@ Vue.use(Router);
 
 const requireAuth = (to, from, next) => {
   const loginPath = `/login?rPath=${encodeURIComponent(to.path)}`;
-  store.getters.isAuth ? next() : next(loginPath);
+  store.getters["auth/isAuth"] ? next() : next(loginPath);
 };
 
 export default new Router({
