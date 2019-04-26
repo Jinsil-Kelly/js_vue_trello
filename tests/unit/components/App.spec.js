@@ -10,7 +10,6 @@ import Card from "@/views/Card.vue";
 import store from "@/store";
 const localVue = createLocalVue();
 localVue.use(Router);
-localVue.component("router-view");
 
 describe("App", () => {
   let isAuth;
