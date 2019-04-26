@@ -1,5 +1,3 @@
 export default {
-  isAuth(state) {
-    return !!state.token;
-  }
+  isAuth: state => !!state.token
 };
