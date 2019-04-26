@@ -33,7 +33,7 @@
 
 <script>
 import AddBoard from "@/components/AddBoard.vue";
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     AddBoard
@@ -46,14 +46,15 @@ export default {
   },
   created() {
     this.fetchData();
-    console.log(this.$refs);
   },
   updated() {
     this.$refs.boardItem.forEach(el => {
       el.style.backgroundColor = el.dataset.bgcolor;
     });
   },
-  computed: { ...mapState(["isAddBoard", "boards"]) },
+  computed: {
+    ...mapGetters(["boards", "isAddBoard"])
+  },
   methods: {
     ...mapMutations(["SET_IS_ADD_BOARD"]),
     ...mapActions(["FETCH_BOARDS"]),
