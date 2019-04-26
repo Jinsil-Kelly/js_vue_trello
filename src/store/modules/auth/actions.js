@@ -1,9 +1,12 @@
 import * as api from "@/api/api";
 
 export default {
-  LOGIN({ commit }, { email, password }) {
-    return api.auth
-      .login(email, password)
-      .then(({ accessToken }) => commit("LOGIN", accessToken));
+  async LOGIN({ commit }, { email, password }) {
+    try {
+      const { accessToken } = await api.auth.login(email, password);
+      commit("LOGIN", accessToken);
+    } catch (e) {
+      throw Error("API Error occurred.");
+    }
   }
 };
