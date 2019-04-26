@@ -24,7 +24,7 @@
           </a>
         </div>
       </div>
-      <AddBoard v-if="isAddBoard" @submit="onAddBoard" />
+      <AddBoard v-if="isAddBoard" />
     </div>
     <router-link to="/b/1">Board1</router-link>
     <router-link to="/b/2">Board2</router-link>
@@ -32,9 +32,8 @@
 </template>
 
 <script>
-import { board } from "@/api/api";
 import AddBoard from "@/components/AddBoard.vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     AddBoard
@@ -42,7 +41,6 @@ export default {
   data() {
     return {
       loading: false,
-      boards: [],
       error: ""
     };
   },
@@ -55,23 +53,15 @@ export default {
       el.style.backgroundColor = el.dataset.bgcolor;
     });
   },
-  computed: { ...mapState(["isAddBoard"]) },
+  computed: { ...mapState(["isAddBoard", "boards"]) },
   methods: {
     ...mapMutations(["SET_IS_ADD_BOARD"]),
+    ...mapActions(["FETCH_BOARDS"]),
     fetchData() {
       this.loading = true;
-      board
-        .fetch()
-        .then(data => {
-          this.boards = data.list;
-        })
-        .finally(() => {
-          this.loading = false;
-        });
-    },
-    onAddBoard(title) {
-      console.log(title);
-      board.create(title).then(() => this.fetchData());
+      this.FETCH_BOARDS().finally(() => {
+        this.loading = false;
+      });
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h2>Log in to Trello</h2>
-    <form id="loginForm" @submit.prevent="onSubmit">
+    <form id="loginForm" @submit.prevent="onSubmit()">
       <div>
         <label for="email">Email</label>
         <input
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { auth, setAuthInHeader } from "@/api/api";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -58,14 +58,10 @@ export default {
     this.rPath = this.$route.query.rPath || "/";
   },
   methods: {
+    ...mapActions(["LOGIN"]),
     onSubmit() {
-      auth
-        .login(this.email, this.password)
-        .then(data => {
-          localStorage.setItem("token", data.accessToken);
-          setAuthInHeader(data.accessToken);
-          this.$router.push(this.rPath);
-        })
+      this.LOGIN({ email: this.email, password: this.password })
+        .then(() => this.$router.push(this.rPath))
         .catch(err => {
           this.error = err.data.error;
         });
