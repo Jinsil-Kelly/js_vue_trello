@@ -9,7 +9,7 @@
     "lintfix": "vue-cli-service lint --fix",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "test": "vue-cli-service test:unit --watch"
+    "test": "vue-cli-service test:unit --watchAll"
   },
   "dependencies": {
     "axios": "^0.18.0",

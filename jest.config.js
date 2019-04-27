@@ -15,8 +15,9 @@ module.exports = {
     "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
   ],
   testURL: "http://localhost/",
-  watchPlugins: [
-    "C:\\Users\\KellyRose\\Desktop\\js_vue_simple\\js_vue_trello\\node_modules\\jest-watch-typeahead\\filename.js",
-    "C:\\Users\\KellyRose\\Desktop\\js_vue_simple\\js_vue_trello\\node_modules\\jest-watch-typeahead\\testname.js"
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.{js,vue}",
+    "!src/main.js" // No need to cover bootstrap file
   ]
 };
