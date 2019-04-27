@@ -34,7 +34,8 @@
 
 <script>
 import Modal from "@/components/Modal.vue";
-import { mapState, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const { mapState, mapActions } = createNamespacedHelpers("board");
 export default {
   components: { Modal },
   data() {

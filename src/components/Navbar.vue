@@ -11,7 +11,6 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-
 const { mapMutations, mapGetters } = createNamespacedHelpers("auth");
 
 export default {

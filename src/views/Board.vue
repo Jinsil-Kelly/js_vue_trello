@@ -23,8 +23,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
 import List from "@/components/List.vue";
+const { mapState, mapActions } = createNamespacedHelpers("board");
 export default {
   components: { List },
   data() {

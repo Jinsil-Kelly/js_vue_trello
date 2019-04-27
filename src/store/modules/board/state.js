@@ -1,4 +1,6 @@
 export default {
   isAddBoard: false,
-  boards: []
+  boards: [],
+  board: {},
+  card: {}
 };
