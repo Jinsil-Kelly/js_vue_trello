@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App renders the component 1`] = `
-<div id="app">
+<div id="app" class="container">
   <navbar-stub></navbar-stub>
   <router-view-stub name="default"></router-view-stub>
 </div>

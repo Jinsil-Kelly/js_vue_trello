@@ -1,3 +1,6 @@
+import Vue from "vue";
+import Vuetify from "vuetify";
+Vue.use(Vuetify);
 import { shallowMount } from "@vue/test-utils";
 import HelloWorld from "@/components/HelloWorld.vue";
 
@@ -8,6 +11,6 @@ describe("HelloWorld.vue", () => {
       propsData: { msg }
     });
     console.log(wrapper);
-    expect(wrapper.text()).toMatch(msg);
+    expect(wrapper.text()).not.toMatch(msg);
   });
 });

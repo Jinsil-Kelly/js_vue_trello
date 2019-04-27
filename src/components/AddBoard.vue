@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Modal from "./Modal.vue";
+import Modal from "@/components/Modal.vue";
 import { createNamespacedHelpers } from "vuex";
 const { mapActions, mapMutations } = createNamespacedHelpers("board");
 
