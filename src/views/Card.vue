@@ -33,9 +33,10 @@
 </template>
 
 <script>
+import { createNamespacedHelpers, mapGetters } from "vuex";
+const { mapActions } = createNamespacedHelpers("card");
 import Modal from "@/components/Modal.vue";
-import { createNamespacedHelpers } from "vuex";
-const { mapState, mapActions } = createNamespacedHelpers("board");
+
 export default {
   components: { Modal },
   data() {
@@ -45,10 +46,8 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      card: "card",
-      board: "board"
-    })
+    ...mapGetters("board", ["board"]),
+    ...mapGetters("card", ["card"])
   },
   created() {
     this.fetchCard();
@@ -57,7 +56,7 @@ export default {
     ...mapActions(["FETCH_CARD", "UPDATE_CARD"]),
     fetchCard() {
       console.log("fetchcard");
-      const id = this.$route.params.cid;
+      const id = this.$route.params.cId;
       this.FETCH_CARD({ id });
     },
     onClose() {
@@ -67,14 +66,20 @@ export default {
       this.toggleTitle = false;
       const title = this.$refs.inputTitle.value.trim();
       if (!title) return;
-      this.UPDATE_CARD({ id: this.card.id, title }).then(() =>
-        this.fetchCard()
-      );
+      this.UPDATE_CARD({
+        id: this.card.id,
+        title,
+        bId: this.$route.params.bId
+      }).then(() => this.fetchCard());
     },
     onBlurDesc() {
       this.toggleDesc = false;
       const description = this.$refs.inputDesc.value.trim();
-      this.UPDATE_CARD({ id: this.card.id, description });
+      this.UPDATE_CARD({
+        id: this.card.id,
+        description,
+        bId: this.$route.params.bId
+      });
     }
   }
 };

@@ -26,8 +26,6 @@
       </div>
       <AddBoard v-if="isAddBoard" />
     </div>
-    <router-link to="/b/1">Board1</router-link>
-    <router-link to="/b/2">Board2</router-link>
   </div>
 </template>
 

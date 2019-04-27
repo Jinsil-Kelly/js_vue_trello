@@ -46,7 +46,7 @@ export default {
     ...mapActions(["FETCH_BOARD"]),
     fetchData() {
       this.loading = true;
-      this.FETCH_BOARD({ id: this.$route.params.bid }).then(
+      this.FETCH_BOARD({ id: this.$route.params.bId }).then(
         () => (this.loading = false)
       );
     }

@@ -19,7 +19,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const { mapActions } = createNamespacedHelpers("board");
+const { mapActions } = createNamespacedHelpers("card");
 export default {
   props: ["listId"],
   data() {
@@ -41,9 +41,11 @@ export default {
     onSubmit() {
       if (this.invalidInput) return;
       const { inputTitle, listId } = this;
-      this.ADD_CARD({ title: inputTitle, listId }).finally(
-        () => (this.inputTitle = "")
-      );
+      this.ADD_CARD({
+        id: this.$route.params.bId,
+        title: inputTitle,
+        listId
+      }).finally(() => (this.inputTitle = ""));
     },
     setupClickOutside(el) {
       document.querySelector("body").addEventListener("click", e => {

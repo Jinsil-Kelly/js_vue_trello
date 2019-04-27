@@ -12,7 +12,7 @@
             <AddCard :list-id="data.id" @close="isAddCard=false"/>
         </div>
         <div v-else>
-            <a class="add-card-btn" href="" @click.prevent="isAddCard=true">
+            <a class="add-card-btn" @click.stop="isAddCard=true">
                 &plus; Add a card...
             </a>
         </div>
@@ -82,9 +82,11 @@
         padding: 8px 10px;
         color: #8c8c8c;
         text-decoration: none;
+
     }
     .add-card-btn:focus,
     .add-card-btn:hover {
+        cursor: pointer;
         background-color: rgba(0,0,0, .1);
     }
 </style>
