@@ -1,9 +1,141 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App does not render Loader Component when loading data is done 1`] = `
+<div id="app">
+  <navbar-stub></navbar-stub>
+  <div id="loader" class="container" style="display: none;">
+    <loader-stub></loader-stub>
+  </div>
+  <div id="content" class="container">
+    <router-view-stub name="default"></router-view-stub>
+  </div>
+</div>
+`;
+
+exports[`App renders Loader Component when data is loading 1`] = `
+<div id="app">
+  <navbar-stub></navbar-stub>
+  <div id="loader" class="container">
+    <loader-stub></loader-stub>
+  </div>
+  <div id="content" class="container" style="display: none;">
+    <router-view-stub name="default"></router-view-stub>
+  </div>
+</div>
+`;
+
+exports[`App renders a child component via routing when a user is logged in and path is '/' 1`] = `
+<div id="app">
+  <nav class="header">
+    <div class="header-logo"><a href="#/" class="router-link-exact-active router-link-active">Home</a></div>
+    <div class="header-auth">
+      <!---->
+    </div>
+  </nav>
+  <div id="loader" class="container" style="display: none;">
+    <div>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>Loading...</div>
+    </div>
+  </div>
+  <div id="content" class="container">
+    <div class="home">
+      <div>
+        <div class="home-title">Personal Boards</div>
+        <div class="board-list">
+          <div class="board-item board-item-new"><a href="" class="new-board-btn">
+              Create new board...
+            </a></div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App renders a child component via routing when a user is logged in and path is '/b/1 1`] = `
+<div id="app">
+  <nav class="header">
+    <div class="header-logo"><a href="#/" class="router-link-active">Home</a></div>
+    <div class="header-auth">
+      <!---->
+    </div>
+  </nav>
+  <div id="loader" class="container" style="display: none;">
+    <div>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>Loading...</div>
+    </div>
+  </div>
+  <div id="content" class="container">
+    <div>
+      <div class="board-wrapper">
+        <div class="board">
+          <div class="board-header"><span class="board-title"></span></div>
+          <div class="list-section-wrapper">
+            <div class="list-section"></div>
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App renders a child component via routing when a user is not logged in 1`] = `
+<div id="app">
+  <nav class="header">
+    <div class="header-logo"><a href="#/" class="router-link-active">Home</a></div>
+    <div class="header-auth">
+      <!---->
+    </div>
+  </nav>
+  <div id="loader" class="container" style="display: none;">
+    <div>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>Loading...</div>
+    </div>
+  </div>
+  <div id="content" class="container">
+    <div class="login">
+      <h2>Log in to Trello</h2>
+      <form id="loginForm">
+        <div><label for="email">Email</label> <input id="email" type="text" name="email" autofocus="autofocus" placeholder="e.g., test@test.com" class="form-control"></div>
+        <div><label for="password">Password</label> <input id="password" type="password" placeholder="123123" class="form-control"></div> <button type="submit" disabled="disabled" class="btn">
+          Log In
+        </button>
+      </form>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`App renders the component 1`] = `
 <div id="app">
   <navbar-stub></navbar-stub>
-  <!---->
-  <router-view-stub name="default" class="container"></router-view-stub>
+  <div id="loader" class="container" style="display: none;">
+    <loader-stub></loader-stub>
+  </div>
+  <div id="content" class="container">
+    <router-view-stub name="default"></router-view-stub>
+  </div>
 </div>
 `;

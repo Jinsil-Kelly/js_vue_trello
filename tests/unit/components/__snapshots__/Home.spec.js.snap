@@ -5,6 +5,11 @@ exports[`HomeComponent renders the component 1`] = `
   <div>
     <div class="home-title">Personal Boards</div>
     <div class="board-list">
+      <div class="board-item">
+        <router-link-stub to="/b/undefined" tag="a" event="click">
+          <div class="board-item-title"></div>
+        </router-link-stub>
+      </div>
       <div class="board-item board-item-new"><a href="" class="new-board-btn">
           Create new board...
         </a></div>

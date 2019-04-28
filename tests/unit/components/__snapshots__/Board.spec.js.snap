@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoardComponent renders main child components 1`] = `
+<div>
+  <div class="board-wrapper">
+    <div class="board">
+      <div class="board-header"><span class="board-title">hoho</span></div>
+      <div class="list-section-wrapper">
+        <div class="list-section">
+          <div class="list-wrapper">
+            <list-stub data="[object Object]"></list-stub>
+          </div>
+          <div class="list-wrapper">
+            <list-stub data="[object Object]"></list-stub>
+          </div>
+          <div class="list-wrapper">
+            <list-stub data="[object Object]"></list-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-view-stub name="default"></router-view-stub>
+</div>
+`;
+
+exports[`BoardComponent renders the component 1`] = `
+<div>
+  <div class="board-wrapper">
+    <div class="board">
+      <div class="board-header"><span class="board-title"></span></div>
+      <div class="list-section-wrapper">
+        <div class="list-section"></div>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;

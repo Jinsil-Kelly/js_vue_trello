@@ -18,26 +18,18 @@
         </div>
       </div>
     </div>
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
 import List from "@/components/List.vue";
-const { mapState, mapActions } = createNamespacedHelpers("board");
+const { mapActions, mapGetters } = createNamespacedHelpers("board");
 export default {
   components: { List },
-  data() {
-    return {
-      bid: 0,
-      loading: false
-    };
-  },
   computed: {
-    ...mapState({
-      board: "board"
-    })
+    ...mapGetters(["board"])
   },
   created() {
     this.fetchData();
@@ -45,10 +37,7 @@ export default {
   methods: {
     ...mapActions(["FETCH_BOARD"]),
     fetchData() {
-      this.loading = true;
-      this.FETCH_BOARD({ id: this.$route.params.bId }).then(
-        () => (this.loading = false)
-      );
+      this.FETCH_BOARD({ id: this.$route.params.bId });
     }
   }
 };

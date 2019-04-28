@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <Navbar />
-    <div v-if="loading" class="container">
+    <div id="loader" v-show="loading" class="container">
       <Loader />
     </div>
-    <router-view class="container" />
+    <div id="content" v-show="!loading" class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 <script>

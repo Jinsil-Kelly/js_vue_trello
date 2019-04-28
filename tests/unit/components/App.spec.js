@@ -81,6 +81,7 @@ describe("App", () => {
     });
     // assert
     expect(wrapper.find(Navbar).exists()).toBe(true);
+    expect(wrapper.findAll(".container").length).toEqual(2);
   });
 
   it("renders a child component via routing when a user is logged in and path is '/'", () => {
@@ -90,6 +91,7 @@ describe("App", () => {
     expect(wrapper.find(Login).exists()).toBe(false);
     expect(wrapper.find(Home).exists()).toBe(true);
     expect(wrapper.find(Board).exists()).toBe(false);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("renders a child component via routing when a user is logged in and path is '/b/1", () => {
@@ -99,6 +101,7 @@ describe("App", () => {
     expect(wrapper.find(Login).exists()).toBe(false);
     expect(wrapper.find(Home).exists()).toBe(false);
     expect(wrapper.find(Board).exists()).toBe(true);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("renders a child component via routing when a user is not logged in", () => {
@@ -108,6 +111,7 @@ describe("App", () => {
     expect(wrapper.find(Login).exists()).toBe(true);
     expect(wrapper.find(Home).exists()).toBe(false);
     expect(wrapper.find(Board).exists()).toBe(false);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("renders Loader Component when data is loading", () => {
@@ -119,10 +123,15 @@ describe("App", () => {
     });
     const wrapper = shallowMount(App, { store: mockStore, localVue });
     getters.loading();
+    expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.find(Loader).exists()).toBe(true);
+    expect(wrapper.findAll(".container").at(0).element.style.display).toBe("");
+    expect(wrapper.findAll(".container").at(1).element.style.display).toBe(
+      "none"
+    );
   });
 
-  it("dose not render Loader Component when loading data is done", () => {
+  it("does not render Loader Component when loading data is done", () => {
     let getters = {
       loading: () => false
     };
@@ -131,6 +140,11 @@ describe("App", () => {
     });
     const wrapper = shallowMount(App, { store: mockStore, localVue });
     getters.loading();
-    expect(wrapper.find(Loader).exists()).toBe(false);
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find(Loader).exists()).toBe(true);
+    expect(wrapper.findAll(".container").at(0).element.style.display).toBe(
+      "none"
+    );
+    expect(wrapper.findAll(".container").at(1).element.style.display).toBe("");
   });
 });
