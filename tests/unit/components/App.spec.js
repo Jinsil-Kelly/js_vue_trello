@@ -8,8 +8,12 @@ import NotFound from "@/views/NotFound.vue";
 import Board from "@/views/Board.vue";
 import Card from "@/views/Card.vue";
 import store from "@/store";
+import Vuex from "vuex";
+import Loader from "@/components/Loader";
+
 const localVue = createLocalVue();
 localVue.use(Router);
+localVue.use(Vuex);
 
 describe("App", () => {
   let isAuth;
@@ -46,7 +50,6 @@ describe("App", () => {
   ];
 
   const router = new Router({ routes });
-
   const build = () => {
     const wrapper = mount(App, {
       localVue,
@@ -69,7 +72,7 @@ describe("App", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("renders main child components", () => {
+  it("renders main child components - Navbar", () => {
     // arrange
     const wrapper = shallowMount(App, {
       localVue,
@@ -105,5 +108,29 @@ describe("App", () => {
     expect(wrapper.find(Login).exists()).toBe(true);
     expect(wrapper.find(Home).exists()).toBe(false);
     expect(wrapper.find(Board).exists()).toBe(false);
+  });
+
+  it("renders Loader Component when data is loading", () => {
+    let getters = {
+      loading: () => true
+    };
+    const mockStore = new Vuex.Store({
+      getters
+    });
+    const wrapper = shallowMount(App, { store: mockStore, localVue });
+    getters.loading();
+    expect(wrapper.find(Loader).exists()).toBe(true);
+  });
+
+  it("dose not render Loader Component when loading data is done", () => {
+    let getters = {
+      loading: () => false
+    };
+    const mockStore = new Vuex.Store({
+      getters
+    });
+    const wrapper = shallowMount(App, { store: mockStore, localVue });
+    getters.loading();
+    expect(wrapper.find(Loader).exists()).toBe(false);
   });
 });
