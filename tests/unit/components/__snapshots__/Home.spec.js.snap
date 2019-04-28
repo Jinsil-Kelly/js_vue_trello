@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeComponent renders the component 1`] = `<helloworld-stub></helloworld-stub>`;
+exports[`HomeComponent renders the component 1`] = `
+<div class="home">
+  <div>
+    <div class="home-title">Personal Boards</div>
+    <div class="board-list">
+      <div class="board-item board-item-new"><a href="" class="new-board-btn">
+          Create new board...
+        </a></div>
+    </div>
+    <!---->
+  </div>
+</div>
+`;

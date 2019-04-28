@@ -39,12 +39,6 @@ export default {
   components: {
     AddBoard
   },
-  data() {
-    return {
-      loading: false,
-      error: ""
-    };
-  },
   created() {
     this.fetchData();
   },
@@ -60,10 +54,7 @@ export default {
     ...mapMutations(["SET_IS_ADD_BOARD"]),
     ...mapActions(["FETCH_BOARDS"]),
     fetchData() {
-      this.loading = true;
-      this.FETCH_BOARDS().finally(() => {
-        this.loading = false;
-      });
+      this.FETCH_BOARDS();
     }
   }
 };

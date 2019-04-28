@@ -3,6 +3,7 @@
 exports[`App renders the component 1`] = `
 <div id="app">
   <navbar-stub></navbar-stub>
+  <!---->
   <router-view-stub name="default" class="container"></router-view-stub>
 </div>
 `;
