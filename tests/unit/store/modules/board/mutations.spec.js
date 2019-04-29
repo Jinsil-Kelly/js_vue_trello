@@ -1,5 +1,6 @@
 import boards from "../../../fixtures/boards";
 import mutations from "@/store/modules/board/mutations.js";
+import board from "../../../fixtures/board";
 
 describe("SET_IS_ADD_BOARD", () => {
   it("opens the modal to create a board", () => {
@@ -38,6 +39,21 @@ describe("SET_BOARDS", () => {
 
     expect(state).toEqual({
       boards: expectedBoards
+    });
+  });
+});
+
+describe("SET_BOARD", () => {
+  it("adds the a board to the state", () => {
+    const expectedBoard = board;
+    const state = {
+      board: {}
+    };
+
+    mutations["SET_BOARD"](state, expectedBoard);
+
+    expect(state).toEqual({
+      board: expectedBoard
     });
   });
 });
