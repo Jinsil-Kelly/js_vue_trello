@@ -1,6 +1,6 @@
 export default {
   id: 2,
-  title: "hoho",
+  title: "MockTitleForTest",
   bgColor: "rgb(0, 121, 191)",
   createdAt: "2019-04-28T17:49:13.383Z",
   updatedAt: "2019-04-28T17:49:13.383Z",

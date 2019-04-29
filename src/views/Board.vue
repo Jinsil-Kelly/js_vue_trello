@@ -32,13 +32,10 @@ export default {
     ...mapGetters(["board"])
   },
   created() {
-    this.fetchData();
+    this.FETCH_BOARD({ id: this.$route.params.bId });
   },
   methods: {
-    ...mapActions(["FETCH_BOARD"]),
-    fetchData() {
-      this.FETCH_BOARD({ id: this.$route.params.bId });
-    }
+    ...mapActions(["FETCH_BOARD"])
   }
 };
 </script>

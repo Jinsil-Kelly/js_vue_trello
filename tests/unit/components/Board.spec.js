@@ -1,74 +1,56 @@
 import Board from "@/views/Board.vue";
-import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
+import { shallowMount, createLocalVue, mount } from "@vue/test-utils";
 import List from "@/components/List.vue";
 import Vuex from "vuex";
-import Router from "vue-router";
-import store from "@/store";
-import board from "./../fixtures/board";
+import board from "../fixtures/board";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
-localVue.use(Router);
 
-describe("BoardComponent", () => {
-  const router = new Router({
-    routes: [{ path: "/b/2", component: Board }]
-  });
-  const build = () => {
-    const options = { localVue, store, router };
-    const wrapper = shallowMount(Board, options);
-    const wrapperMounted = mount(Board, options);
-
-    return {
-      wrapper,
-      wrapperMounted
-    };
+describe("Board", () => {
+  let wrapper, wrapperMounted;
+  const getters = {
+    board: jest.fn().mockReturnValue(board)
   };
+  const actions = {
+    FETCH_BOARD: jest.fn()
+  };
+  const mockStore = new Vuex.Store({
+    modules: {
+      board: {
+        namespaced: true,
+        actions,
+        getters
+      }
+    }
+  });
+  const $route = {
+    params: { bId: 2 }
+  };
+  const options = {
+    store: mockStore,
+    localVue,
+    stubs: ["router-view"],
+    mocks: {
+      $route
+    }
+  };
+  test("It should fetch items.", () => {
+    wrapper = shallowMount(Board, options);
 
-  it("renders the component", () => {
-    // arrange
-    const { wrapperMounted } = build();
-
-    // assert
-    expect(wrapperMounted.find(List).exists()).toBe(false);
-
-    expect(wrapperMounted.html()).toMatchSnapshot();
+    expect(actions.FETCH_BOARD).toBeCalled();
+    expect(actions.FETCH_BOARD.mock.calls[0][1]).toEqual({
+      id: wrapper.vm.$route.params.bId
+    });
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("renders main child components", () => {
-    let getters = {
-      board: () => {
-        return board;
-      }
-    };
+    wrapperMounted = mount(Board, options);
 
-    let actions = {
-      FETCH_BOARD: () => jest.fn()
-    };
-    const mockStore = new Vuex.Store({
-      modules: {
-        board: {
-          namespaced: true,
-          actions,
-          getters
-        }
-      }
-    });
-
-    const fetchData = jest.fn();
-
-    const wrapper = shallowMount(Board, {
-      methods: { fetchData },
-      store: mockStore,
-      localVue,
-      router
-    });
-    actions.FETCH_BOARD();
-    console.log(getters.board());
-    getters.board();
-    expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll(List).length).toEqual(3);
-
-    expect(wrapper.find(List).exists()).toBe(true);
+    expect(wrapperMounted.find(".board").text()).toContain(board.title);
+    expect(wrapperMounted.findAll(List).length).toEqual(3);
+    expect(wrapperMounted.find(List).exists()).toBe(true);
+    expect(wrapperMounted.html()).toMatchSnapshot();
   });
 });

@@ -40,7 +40,7 @@ export default {
     AddBoard
   },
   created() {
-    this.fetchData();
+    this.FETCH_BOARDS();
   },
   updated() {
     this.$refs.boardItem.forEach(el => {
@@ -52,10 +52,7 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_IS_ADD_BOARD"]),
-    ...mapActions(["FETCH_BOARDS"]),
-    fetchData() {
-      this.FETCH_BOARDS();
-    }
+    ...mapActions(["FETCH_BOARDS"])
   }
 };
 </script>

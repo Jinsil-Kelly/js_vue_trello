@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BoardComponent renders main child components 1`] = `
+exports[`Board It should fetch items. 1`] = `
 <div>
   <div class="board-wrapper">
     <div class="board">
-      <div class="board-header"><span class="board-title">hoho</span></div>
+      <div class="board-header"><span class="board-title">MockTitleForTest</span></div>
       <div class="list-section-wrapper">
         <div class="list-section">
           <div class="list-wrapper">
@@ -20,20 +20,54 @@ exports[`BoardComponent renders main child components 1`] = `
       </div>
     </div>
   </div>
-  <router-view-stub name="default"></router-view-stub>
+  <router-view-stub></router-view-stub>
 </div>
 `;
 
-exports[`BoardComponent renders the component 1`] = `
+exports[`Board renders main child components 1`] = `
 <div>
   <div class="board-wrapper">
     <div class="board">
-      <div class="board-header"><span class="board-title"></span></div>
+      <div class="board-header"><span class="board-title">MockTitleForTest</span></div>
       <div class="list-section-wrapper">
-        <div class="list-section"></div>
+        <div class="list-section">
+          <div class="list-wrapper">
+            <div class="list">
+              <div class="list-header">
+                <div class="list-header-title">Todo</div>
+              </div>
+              <div data-list-id="1" class="card-list"></div>
+              <div><a class="add-card-btn">
+                  + Add a card...
+                </a></div>
+            </div>
+          </div>
+          <div class="list-wrapper">
+            <div class="list">
+              <div class="list-header">
+                <div class="list-header-title">Doing</div>
+              </div>
+              <div data-list-id="2" class="card-list"></div>
+              <div><a class="add-card-btn">
+                  + Add a card...
+                </a></div>
+            </div>
+          </div>
+          <div class="list-wrapper">
+            <div class="list">
+              <div class="list-header">
+                <div class="list-header-title">Done</div>
+              </div>
+              <div data-list-id="3" class="card-list"></div>
+              <div><a class="add-card-btn">
+                  + Add a card...
+                </a></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <!---->
+  <router-view-stub></router-view-stub>
 </div>
 `;
