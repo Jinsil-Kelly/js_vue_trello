@@ -1,3 +1,3 @@
 export default {
-  card: state => state.card
+  card: state => state || {}
 };
