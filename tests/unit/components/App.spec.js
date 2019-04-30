@@ -103,7 +103,16 @@ describe("App", () => {
     expect(wrapper.find(Board).exists()).toBe(true);
     expect(wrapper.html()).toMatchSnapshot();
   });
-
+  it("renders a child component via routing when a user is logged in and path is '/b/1/c/2", () => {
+    isAuth = true;
+    const { wrapper } = build();
+    router.push("/b/1/c/2");
+    expect(wrapper.find(Login).exists()).toBe(false);
+    expect(wrapper.find(Home).exists()).toBe(false);
+    expect(wrapper.find(Board).exists()).toBe(true);
+    expect(wrapper.find(Card).exists()).toBe(true);
+    expect(wrapper.html()).toMatchSnapshot();
+  });
   it("renders a child component via routing when a user is not logged in", () => {
     isAuth = false;
     const { wrapper } = build();

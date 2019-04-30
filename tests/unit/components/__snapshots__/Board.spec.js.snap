@@ -1,22 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Board It should fetch items. 1`] = `
+exports[`Board It doesn't render List Component when list data isn't 1`] = `
 <div>
   <div class="board-wrapper">
     <div class="board">
       <div class="board-header"><span class="board-title">MockTitleForTest</span></div>
       <div class="list-section-wrapper">
-        <div class="list-section">
-          <div class="list-wrapper">
-            <list-stub data="[object Object]"></list-stub>
-          </div>
-          <div class="list-wrapper">
-            <list-stub data="[object Object]"></list-stub>
-          </div>
-          <div class="list-wrapper">
-            <list-stub data="[object Object]"></list-stub>
-          </div>
-        </div>
+        <div class="list-section"></div>
       </div>
     </div>
   </div>
@@ -24,7 +14,7 @@ exports[`Board It should fetch items. 1`] = `
 </div>
 `;
 
-exports[`Board renders main child components 1`] = `
+exports[`Board It renders List Component and Card Component when list data is 1`] = `
 <div>
   <div class="board-wrapper">
     <div class="board">
@@ -36,7 +26,26 @@ exports[`Board renders main child components 1`] = `
               <div class="list-header">
                 <div class="list-header-title">Todo</div>
               </div>
-              <div data-list-id="1" class="card-list"></div>
+              <div data-list-id="1" class="card-list">
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/1">
+                    <div>card1</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/2">
+                    <div>card2</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/3">
+                    <div>card3</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+              </div>
               <div><a class="add-card-btn">
                   + Add a card...
                 </a></div>
@@ -47,7 +56,26 @@ exports[`Board renders main child components 1`] = `
               <div class="list-header">
                 <div class="list-header-title">Doing</div>
               </div>
-              <div data-list-id="2" class="card-list"></div>
+              <div data-list-id="2" class="card-list">
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/1">
+                    <div>card1</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/2">
+                    <div>card2</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/3">
+                    <div>card3</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+              </div>
               <div><a class="add-card-btn">
                   + Add a card...
                 </a></div>
@@ -58,11 +86,54 @@ exports[`Board renders main child components 1`] = `
               <div class="list-header">
                 <div class="list-header-title">Done</div>
               </div>
-              <div data-list-id="3" class="card-list"></div>
+              <div data-list-id="3" class="card-list">
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/1">
+                    <div>card1</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/2">
+                    <div>card2</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+                <div class="card-item">
+                  <router-link-stub to="/b/2/c/3">
+                    <div>card3</div>
+                    <!---->
+                  </router-link-stub>
+                </div>
+              </div>
               <div><a class="add-card-btn">
                   + Add a card...
                 </a></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-view-stub></router-view-stub>
+</div>
+`;
+
+exports[`Board It renders List Component and doesn't render Card Component when list data is 1`] = `
+<div>
+  <div class="board-wrapper">
+    <div class="board">
+      <div class="board-header"><span class="board-title">MockTitleForTest</span></div>
+      <div class="list-section-wrapper">
+        <div class="list-section">
+          <div class="list-wrapper">
+            <list-stub data="[object Object]"></list-stub>
+          </div>
+          <div class="list-wrapper">
+            <list-stub data="[object Object]"></list-stub>
+          </div>
+          <div class="list-wrapper">
+            <list-stub data="[object Object]"></list-stub>
           </div>
         </div>
       </div>

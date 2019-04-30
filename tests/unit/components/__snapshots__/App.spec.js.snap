@@ -94,6 +94,59 @@ exports[`App renders a child component via routing when a user is logged in and 
 </div>
 `;
 
+exports[`App renders a child component via routing when a user is logged in and path is '/b/1/c/2 1`] = `
+<div id="app">
+  <nav class="header">
+    <div class="header-logo"><a href="#/" class="router-link-active">Home</a></div>
+    <div class="header-auth">
+      <!---->
+    </div>
+  </nav>
+  <div id="loader" class="container" style="display: none;">
+    <div>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>Loading...</div>
+    </div>
+  </div>
+  <div id="content" class="container">
+    <div>
+      <div class="board-wrapper">
+        <div class="board">
+          <div class="board-header"><span class="board-title"></span></div>
+          <div class="list-section-wrapper">
+            <div class="list-section"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-mask modal-card" name="modal">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+            <div class="modal-header">
+              <div class="modal-card-header">
+                <div class="modal-card-header-title"><input type="text" readonly="readonly" class="form-control"></div> <a href="" class="modal-close-btn">×</a>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div>
+                <h3>Description</h3> <textarea cols="30" rows="3" placeholder="Add a more detailed description..." readonly="readonly" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`App renders a child component via routing when a user is not logged in 1`] = `
 <div id="app">
   <nav class="header">

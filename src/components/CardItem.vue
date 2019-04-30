@@ -9,13 +9,11 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const { mapState } = createNamespacedHelpers("board");
+const { mapGetters } = createNamespacedHelpers("board");
 export default {
   props: ["data"],
   computed: {
-    ...mapState({
-      boardId: state => state.board.id
-    })
+    ...mapGetters(["boardId"])
   }
 };
 </script>
