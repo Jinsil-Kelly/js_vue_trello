@@ -3,10 +3,10 @@
 exports[`Card has the expected html structure 1`] = `
 <modal-stub class="modal-card">
   <div>
-    <editcardheader-stub title="card1"></editcardheader-stub>
+    <cardheader-stub title="card1"></cardheader-stub>
   </div>
   <div>
-    <h3>Description</h3> <textarea cols="30" rows="3" placeholder="Add a more detailed description..." readonly="readonly" class="form-control"></textarea>
+    <cardbody-stub></cardbody-stub>
   </div>
   <div></div>
 </modal-stub>

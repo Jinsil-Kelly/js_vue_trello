@@ -4,21 +4,22 @@
       <input
         class="form-control"
         :readonly="!toggleTitle"
-        @click="toggleTitle = true"
-        @blur="onBlurTitle"
+        @click="$emit('onToggleTitle')"
+        @blur="$emit('onBlurTitle', $event.target.value)"
         type="text"
         :value="title"
-        ref="inputTitle"
       />
     </div>
-    <a class="modal-close-btn" href="" @click.prevent="onClose">&times;</a>
+    <a class="modal-close-btn" href="" @click.prevent="$emit('close')"
+      >&times;</a
+    >
   </div>
 </template>
 
 <script>
 export default {
   name: "EditCardHeader",
-  props: ["title"]
+  props: ["title", "toggleTitle"]
 };
 </script>
 

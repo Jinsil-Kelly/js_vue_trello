@@ -135,7 +135,9 @@ exports[`App renders a child component via routing when a user is logged in and 
             </div>
             <div class="modal-body">
               <div>
-                <h3>Description</h3> <textarea cols="30" rows="3" placeholder="Add a more detailed description..." readonly="readonly" class="form-control"></textarea>
+                <div>
+                  <h3>Description</h3> <textarea cols="30" rows="3" placeholder="Add a more detailed description..." readonly="readonly" class="form-control"></textarea>
+                </div>
               </div>
             </div>
             <div class="modal-footer">

@@ -1,21 +1,21 @@
 <template>
   <Modal class="modal-card">
     <div slot="header">
-      <EditCardHeader :title="card.title" />
+      <CardHeader
+        @onBlurTitle="onBlurTitle"
+        @onToggleTitle="toggleTitle = true"
+        :title="card.title"
+        :toggleTitle="toggleTitle"
+        v-on:close="onClose"
+      />
     </div>
     <div slot="body">
-      <h3>Description</h3>
-      <textarea
-        class="form-control"
-        cols="30"
-        rows="3"
-        placeholder="Add a more detailed description..."
-        :readonly="!toggleDesc"
-        @click="toggleDesc = true"
-        @blur="onBlurDesc"
-        v-model="card.description"
-        ref="inputDesc"
-      ></textarea>
+      <CardBody
+        :toggleDesc="toggleDesc"
+        @onBlurDesc="onBlurDesc"
+        @onToggleDesc="toggleDesc = true"
+        :description="card.description"
+      />
     </div>
     <div slot="footer"></div>
   </Modal>
@@ -25,14 +25,17 @@
 import { createNamespacedHelpers, mapGetters } from "vuex";
 const { mapActions } = createNamespacedHelpers("card");
 import Modal from "@/components/Modal.vue";
-import EditCardHeader from "@/components/EditCardHeader.vue";
+import CardHeader from "@/components/card/CardHeader.vue";
+import CardBody from "@/components/card/CardBody.vue";
 
 export default {
-  components: { Modal, EditCardHeader },
+  components: { Modal, CardHeader, CardBody },
   data() {
     return {
       toggleTitle: false,
-      toggleDesc: false
+      toggleDesc: false,
+      inputTitle: "",
+      textDesc: ""
     };
   },
   computed: {
@@ -40,35 +43,36 @@ export default {
     ...mapGetters("card", ["card"])
   },
   created() {
-    // this.fetch()
-    this.FETCH_CARD({ id: this.$route.params.cId });
+    this.fetch();
+    // this.FETCH_CARD({ id: this.$route.params.cId });
   },
   methods: {
     ...mapActions(["FETCH_CARD", "UPDATE_CARD"]),
-    // fetch(){
-    //   this.FETCH_CARD({ id:this.$route.params.cId });
-    // },
+    fetch() {
+      this.FETCH_CARD({ id: this.$route.params.cId });
+    },
     onClose() {
       this.$router.push(`/b/${this.board.id}`);
     },
-    onBlurTitle() {
+    onBlurTitle(title) {
       this.toggleTitle = false;
-      const title = this.$refs.inputTitle.value.trim();
-      if (!title) return;
+      this.inputTitle = title.trim();
+      if (!this.inputTitle) return;
       this.UPDATE_CARD({
         id: this.card.id,
-        title,
+        title: this.inputTitle,
         bId: this.$route.params.bId
-      }).then(() => this.FETCH_CARD({ id: this.$route.params.cId }));
+      }).then(() => this.fetch());
     },
-    onBlurDesc() {
+    onBlurDesc(desc) {
       this.toggleDesc = false;
-      const description = this.$refs.inputDesc.value.trim();
+      this.textDesc = desc.trim();
+      if (!this.textDesc) return;
       this.UPDATE_CARD({
         id: this.card.id,
-        description,
+        description: this.textDesc,
         bId: this.$route.params.bId
-      });
+      }).then(() => this.fetch());
     }
   }
 };
