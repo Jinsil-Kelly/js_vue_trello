@@ -15,7 +15,8 @@ describe("Board", () => {
   };
 
   const $route = {
-    params: { bId: 2 }
+    params: { bId: 2 },
+    path: "/b/2/c/1"
   };
   const getters = {
     board: jest.fn().mockReturnValue(board)
@@ -88,7 +89,6 @@ describe("Board", () => {
         }
       })
     });
-
     expect(wrapper.find(CardItem).exists()).toBe(true);
     expect(wrapper.html()).toMatchSnapshot();
   });

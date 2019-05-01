@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Header slot renders a default header text 1`] = `
+<div class="modal-mask" name="modal">
+  <div class="modal-wrapper">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-card-header">
+          <div class="modal-card-header-title"><input type="text" class="form-control"></div> <a href="" class="modal-close-btn">×</a>
+        </div>
+      </div>
+      <div class="modal-body">
+        default body
+      </div>
+      <div class="modal-footer">
+        default footer
+        <button class="modal-default-button">
+          OK
+        </button></div>
+    </div>
+  </div>
+</div>
+`;

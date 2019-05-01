@@ -7,6 +7,8 @@ export default {
       .create(title, listId, pos)
       .then(() => dispatch("board/FETCH_BOARD", { id }, { root: true }));
   },
+
+  //id is cId
   FETCH_CARD({ commit }, { id }) {
     return api.card.fetch(id).then(data => {
       commit("SET_CARD", data.item);

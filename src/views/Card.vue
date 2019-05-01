@@ -1,18 +1,7 @@
 <template>
   <Modal class="modal-card">
-    <div slot="header" class="modal-card-header">
-      <div class="modal-card-header-title">
-        <input
-          class="form-control"
-          type="text"
-          :value="card.title"
-          :readonly="!toggleTitle"
-          @click="toggleTitle = true"
-          @blur="onBlurTitle"
-          ref="inputTitle"
-        />
-      </div>
-      <a class="modal-close-btn" href="" @click.prevent="onClose">&times;</a>
+    <div slot="header">
+      <EditCardHeader :title="card.title" />
     </div>
     <div slot="body">
       <h3>Description</h3>
@@ -36,9 +25,10 @@
 import { createNamespacedHelpers, mapGetters } from "vuex";
 const { mapActions } = createNamespacedHelpers("card");
 import Modal from "@/components/Modal.vue";
+import EditCardHeader from "@/components/EditCardHeader.vue";
 
 export default {
-  components: { Modal },
+  components: { Modal, EditCardHeader },
   data() {
     return {
       toggleTitle: false,
@@ -50,15 +40,14 @@ export default {
     ...mapGetters("card", ["card"])
   },
   created() {
-    this.fetchCard();
+    // this.fetch()
+    this.FETCH_CARD({ id: this.$route.params.cId });
   },
   methods: {
     ...mapActions(["FETCH_CARD", "UPDATE_CARD"]),
-    fetchCard() {
-      console.log("fetchcard");
-      const id = this.$route.params.cId;
-      this.FETCH_CARD({ id });
-    },
+    // fetch(){
+    //   this.FETCH_CARD({ id:this.$route.params.cId });
+    // },
     onClose() {
       this.$router.push(`/b/${this.board.id}`);
     },
@@ -70,7 +59,7 @@ export default {
         id: this.card.id,
         title,
         bId: this.$route.params.bId
-      }).then(() => this.fetchCard());
+      }).then(() => this.FETCH_CARD({ id: this.$route.params.cId }));
     },
     onBlurDesc() {
       this.toggleDesc = false;

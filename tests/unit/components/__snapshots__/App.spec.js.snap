@@ -127,8 +127,10 @@ exports[`App renders a child component via routing when a user is logged in and 
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modal-header">
-              <div class="modal-card-header">
-                <div class="modal-card-header-title"><input type="text" readonly="readonly" class="form-control"></div> <a href="" class="modal-close-btn">×</a>
+              <div>
+                <div class="modal-card-header">
+                  <div class="modal-card-header-title"><input readonly="readonly" type="text" class="form-control"></div> <a href="" class="modal-close-btn">×</a>
+                </div>
               </div>
             </div>
             <div class="modal-body">
