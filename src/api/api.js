@@ -3,10 +3,13 @@ import router from "../router";
 
 const DOMAIN = "http://localhost:3000";
 const UNAUTHORIZED = 401;
+const NOTFOUND = 404;
 const onUnauthorized = () => {
   router.push(`/login?rPath=${encodeURIComponent(location.pathname)}`);
 };
-
+const onNotFound = () => {
+  router.push(`/notFound`);
+};
 const request = (method, url, data) => {
   return axios({
     method,
@@ -17,6 +20,8 @@ const request = (method, url, data) => {
     .catch(result => {
       const { status } = result.response;
       if (status === UNAUTHORIZED) onUnauthorized();
+      if (status === NOTFOUND) onNotFound();
+
       throw result.response;
     });
 };
