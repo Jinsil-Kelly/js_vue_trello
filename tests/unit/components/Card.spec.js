@@ -1,7 +1,7 @@
 import Card from "@/views/Card.vue";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import {fetchedCard} from "../fixtures/card";
+import { fetchedCard } from "../fixtures/card";
 import cardBoard from "../fixtures/cardBoard";
 const localVue = createLocalVue();
 localVue.use(Vuex);
