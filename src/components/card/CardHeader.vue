@@ -23,4 +23,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+  .modal-card-header-title {
+  padding-right: 30px;
+}
+.modal-close-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 24px;
+  text-decoration: none;
+}
+.modal-card-header {
+  position: relative;
+}</style>

@@ -6,7 +6,7 @@
         @onToggleTitle="toggleTitle = true"
         :title="card.title"
         :toggleTitle="toggleTitle"
-        v-on:close="onClose"
+        @close="onClose"
       />
     </div>
     <div slot="body">
@@ -83,18 +83,5 @@ export default {
   min-width: 300px;
   max-width: 800px;
   width: 60%;
-}
-.modal-card-header-title {
-  padding-right: 30px;
-}
-.modal-close-btn {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  font-size: 24px;
-  text-decoration: none;
-}
-.modal-card-header {
-  position: relative;
 }
 </style>
