@@ -9,10 +9,13 @@ export default {
   },
 
   //id is cId
-  FETCH_CARD({ commit }, { id }) {
-    return api.card.fetch(id).then(data => {
-      commit("SET_CARD", data.item);
-    });
+  async FETCH_CARD({ commit }, { id }) {
+    try {
+      const { item } = await api.card.fetch(id);
+      commit("SET_CARD", item);
+    } catch (e) {
+      throw Error("API Error occurred.");
+    }
   },
 
   //id is cId

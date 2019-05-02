@@ -3,7 +3,7 @@
 import userFixture from "../../../tests/unit/fixtures/user";
 import boardsFixture from "../../../tests/unit/fixtures/boards";
 import boardFixture from "../../../tests/unit/fixtures/board";
-import cardFixture from "../../../tests/unit/fixtures/card";
+import {fetchedCard} from "../../../tests/unit/fixtures/card";
 
 const { accessToken } = userFixture;
 
@@ -16,7 +16,7 @@ export const board = {
   fetch: jest.fn(id => (id ? boardFixture : boardsFixture))
 };
 export const card = {
-  create: jest.fn(),
-  fetch: jest.fn().mockResolvedValue(cardFixture),
-  update:jest.fn(),
+  // create: jest.fn(title, listId, pos),
+  fetch: jest.fn(id=> fetchedCard)
+  // update:jest.fn(id,payload),
 };

@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-  .modal-card-header-title {
+.modal-card-header-title {
   padding-right: 30px;
 }
 .modal-close-btn {
@@ -36,4 +36,5 @@ export default {
 }
 .modal-card-header {
   position: relative;
-}</style>
+}
+</style>
