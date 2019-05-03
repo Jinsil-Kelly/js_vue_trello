@@ -23,5 +23,17 @@ export default {
     return api.card
       .update(id, { title, description, pos, listId })
       .then(() => dispatch("board/FETCH_BOARD", { id: bId }, { root: true }));
+  },
+
+  DELETE_CARD({ dispatch, rootState }, { id }) {
+    return api.card
+      .destroy(id)
+      .then(() =>
+        dispatch(
+          "board/FETCH_BOARD",
+          { id: rootState.board.board.id },
+          { root: true }
+        )
+      );
   }
 };

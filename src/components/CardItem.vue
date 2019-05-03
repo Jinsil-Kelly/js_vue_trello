@@ -1,19 +1,29 @@
 <template>
-  <div class="card-item">
+  <div class="card-item" :data-card-id="data.id" :data-card-pos="data.pos">
     <router-link :to="`/b/${boardId}/c/${data.id}`">
       <div>{{ data.title }}</div>
       <div class="card-item-meta" v-if="data.description">&equiv;</div>
     </router-link>
+    <a class="delete-card-btn" href="" @click.prevent="onDelete">&times;</a>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters } = createNamespacedHelpers("board");
+const { mapActions } = createNamespacedHelpers("card");
+
 export default {
   props: ["data"],
   computed: {
     ...mapGetters(["boardId"])
+  },
+  methods: {
+    ...mapActions(["DELETE_CARD"]),
+    onDelete() {
+      if (!window.confirm("Delete this card?")) return;
+      this.DELETE_CARD({ id: this.data.id });
+    }
   }
 };
 </script>

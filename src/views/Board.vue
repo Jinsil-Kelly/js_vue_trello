@@ -23,10 +23,15 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
+import { createNamespacedHelpers, mapActions } from "vuex";
+const { mapGetters } = createNamespacedHelpers("board");
+import dragger from "@/utils/dragger";
 import List from "@/components/List.vue";
-const { mapActions, mapGetters } = createNamespacedHelpers("board");
+
 export default {
+  data() {
+    return { cDragger: null };
+  },
   components: { List },
   computed: {
     ...mapGetters(["board"])
@@ -34,8 +39,38 @@ export default {
   created() {
     this.FETCH_BOARD({ id: this.$route.params.bId });
   },
+  updated() {
+    this.setCardDragabble();
+  },
   methods: {
-    ...mapActions(["FETCH_BOARD"])
+    ...mapActions("board", ["FETCH_BOARD"]),
+    ...mapActions("card", ["UPDATE_CARD"]),
+    setCardDragabble() {
+      if (this.cDragger) this.cDragger.destroy();
+
+      this.cDragger = dragger.init(
+        Array.from(this.$el.querySelectorAll(".card-list"))
+      );
+      // eslint-disable-next-line no-unused-vars
+      this.cDragger.on("drop", (el, wrapper, target, silblings) => {
+        const targetCard = {
+          id: el.dataset.cardId * 1,
+          listId: wrapper.dataset.listId * 1,
+          pos: 65535
+        };
+        const { prev, next } = dragger.sibling({
+          el,
+          wrapper,
+          candidates: Array.from(wrapper.querySelectorAll(".card-item")),
+          type: "card"
+        });
+
+        if (!prev && next) targetCard.pos = next.pos / 2;
+        else if (!next && prev) targetCard.pos = prev.pos * 2;
+        else if (next && prev) targetCard.pos = (prev.pos + next.pos) / 2;
+        this.UPDATE_CARD({ ...targetCard, bId: this.$route.params.bId });
+      });
+    }
   }
 };
 </script>
