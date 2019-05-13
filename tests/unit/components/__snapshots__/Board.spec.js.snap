@@ -27,23 +27,23 @@ exports[`Board It renders List Component and Card Component when list data is 1`
                 <div class="list-header-title">Todo</div>
               </div>
               <div data-list-id="1" class="card-list">
-                <div class="card-item">
+                <div data-card-id="1" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/1">
                     <div>card1</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
-                <div class="card-item">
+                <div data-card-id="2" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/2">
                     <div>card2</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
-                <div class="card-item">
+                <div data-card-id="3" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/3">
                     <div>card3</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
               </div>
               <div><a class="add-card-btn">
@@ -57,23 +57,23 @@ exports[`Board It renders List Component and Card Component when list data is 1`
                 <div class="list-header-title">Doing</div>
               </div>
               <div data-list-id="2" class="card-list">
-                <div class="card-item">
+                <div data-card-id="1" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/1">
                     <div>card1</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
-                <div class="card-item">
+                <div data-card-id="2" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/2">
                     <div>card2</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
-                <div class="card-item">
+                <div data-card-id="3" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/3">
                     <div>card3</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
               </div>
               <div><a class="add-card-btn">
@@ -87,23 +87,23 @@ exports[`Board It renders List Component and Card Component when list data is 1`
                 <div class="list-header-title">Done</div>
               </div>
               <div data-list-id="3" class="card-list">
-                <div class="card-item">
+                <div data-card-id="1" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/1">
                     <div>card1</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
-                <div class="card-item">
+                <div data-card-id="2" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/2">
                     <div>card2</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
-                <div class="card-item">
+                <div data-card-id="3" data-card-pos="65535" class="card-item">
                   <router-link-stub to="/b/2/c/3">
                     <div>card3</div>
                     <!---->
-                  </router-link-stub>
+                  </router-link-stub> <a href="" class="delete-card-btn">×</a>
                 </div>
               </div>
               <div><a class="add-card-btn">
